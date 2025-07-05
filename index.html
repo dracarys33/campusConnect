@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CampusConnect - Student Portal</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">CampusConnect</div>
+                <nav>
+                    <ul class="nav-links" id="navLinks">
+                        <li><a href="#dashboard" onclick="showPage('dashboard'); return false;">Dashboard</a></li>
+                        <li><a href="#events" onclick="showPage('events'); return false;">Events</a></li>
+                        <li><a href="#announcements" onclick="showPage('announcements'); return false;">Announcements</a></li>
+                        <li><a href="#profile" onclick="showPage('profile'); return false;">Profile</a></li>
+                    </ul>
+                </nav>
+                <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+                <div class="user-profile">
+                    <div class="profile-pic">TS</div>
+                    <span>Tanya Student</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <!-- Dashboard Page -->
+            <div id="dashboard" class="page active">
+                <div class="welcome-section">
+                    <h1 class="welcome-title">Welcome Back, Tanya!</h1>
+                    <p class="welcome-subtitle">Ready to explore what's happening on campus today?</p>
+                </div>
+
+                <div class="dashboard-grid">
+                    <div class="card stat-card">
+                        <div class="stat-number">5</div>
+                        <div class="stat-label">Upcoming Events</div>
+                    </div>
+                    <div class="card stat-card">
+                        <div class="stat-number">12</div>
+                        <div class="stat-label">New Announcements</div>
+                    </div>
+                    <div class="card stat-card">
+                        <div class="stat-number">3</div>
+                        <div class="stat-label">Registered Events</div>
+                    </div>
+                </div>
+
+                <div class="dashboard-grid">
+                    <div class="card">
+                        <h3>Recent Announcements</h3>
+                        <div class="announcement">
+                            <div class="announcement-title">Library Hours Extended</div>
+                            <p>The library will be open 24/7 during finals week.</p>
+                            <div class="announcement-date">2 hours ago</div>
+                        </div>
+                        <div class="announcement">
+                            <div class="announcement-title">Career Fair</div>
+                            <p>Join us for the annual career fair next week.</p>
+                            <div class="announcement-date">1 day ago</div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <h3>Quick Actions</h3>
+                        <button class="btn btn-primary" onclick="showPage('events'); return false;" style="display: block; width: 100%; margin-bottom: 1rem;">Browse Events</button>
+                        <button class="btn" onclick="showPage('announcements'); return false;" style="display: block; width: 100%; margin-bottom: 1rem;">View All Announcements</button>
+                        <button class="btn" onclick="showPage('profile'); return false;" style="display: block; width: 100%;">Edit Profile</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Events Page -->
+            <div id="events" class="page">
+                <h1 style="margin-bottom: 2rem; color: var(--primary-dark);">Campus Events</h1>
+                <div class="events-grid">
+                    <div class="event-card">
+                        <div class="event-date">Jul 15, 2025</div>
+                        <div class="event-title">Tech Conference 2025</div>
+                        <div class="event-location">Main Auditorium</div>
+                        <p>Join industry leaders discussing the future of technology.</p>
+                        <button class="btn btn-primary" onclick="registerEvent('Tech Conference')">Register</button>
+                    </div>
+                    <div class="event-card">
+                        <div class="event-date">Jul 18, 2025</div>
+                        <div class="event-title">Student Orientation</div>
+                        <div class="event-location">Student Center</div>
+                        <p>Welcome session for new students starting this semester.</p>
+                        <button class="btn btn-primary" onclick="registerEvent('Student Orientation')">Register</button>
+                    </div>
+                    <div class="event-card">
+                        <div class="event-date">Jul 22, 2025</div>
+                        <div class="event-title">Cultural Festival</div>
+                        <div class="event-location">Campus Grounds</div>
+                        <p>Celebrate diversity with food, music, and performances.</p>
+                        <button class="btn btn-primary" onclick="registerEvent('Cultural Festival')">Register</button>
+                    </div>
+                    <div class="event-card">
+                        <div class="event-date">Jul 25, 2025</div>
+                        <div class="event-title">Career Workshop</div>
+                        <div class="event-location">Room 201</div>
+                        <p>Learn resume writing and interview skills.</p>
+                        <button class="btn btn-primary" onclick="registerEvent('Career Workshop')">Register</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Announcements Page -->
+            <div id="announcements" class="page">
+                <h1 style="margin-bottom: 2rem; color: var(--primary-dark);">Campus Announcements</h1>
+                <div class="card">
+                    <div class="announcement">
+                        <div class="announcement-title">Library Hours Extended</div>
+                        <p>The campus library will extend its operating hours during the upcoming finals week. Students will have access to study spaces and resources 24/7 from July 20-27.</p>
+                        <div class="announcement-date">2 hours ago</div>
+                    </div>
+                    <div class="announcement">
+                        <div class="announcement-title">Career Fair Registration Open</div>
+                        <p>Registration is now open for the annual career fair. Over 50 companies will be participating. Don't miss this opportunity to network and explore career options.</p>
+                        <div class="announcement-date">1 day ago</div>
+                    </div>
+                    <div class="announcement">
+                        <div class="announcement-title">Parking Lot Maintenance</div>
+                        <p>Parking lot B will be closed for maintenance from July 10-12. Please use alternative parking areas during this period.</p>
+                        <div class="announcement-date">2 days ago</div>
+                    </div>
+                    <div class="announcement">
+                        <div class="announcement-title">New Course Offerings</div>
+                        <p>Several new courses have been added for the fall semester, including Advanced Data Science and Digital Marketing. Check the course catalog for details.</p>
+                        <div class="announcement-date">3 days ago</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Profile Page -->
+            <div id="profile" class="page">
+                <h1 style="margin-bottom: 2rem; color: var(--primary-dark);">Student Profile</h1>
+                <div class="login-container">
+                    <form class="login-form" onsubmit="updateProfile(event)">
+                        <h2 style="text-align: center; margin-bottom: 1.5rem; color: var(--primary-dark);">Edit Profile</h2>
+                        <div class="form-group">
+                            <label for="fullName">Full Name</label>
+                            <input type="text" id="fullName" value="Tanya Student" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" value="tanya.student@campus.edu" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" value="+1-555-0123" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="major">Major</label>
+                            <input type="text" id="major" value="Computer Science" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Update Profile</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="notification" class="notification">
+        <span id="notificationText">Notification message</span>
+    </div>
+
+    
+</body>
+</html>
